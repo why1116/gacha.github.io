@@ -7,24 +7,38 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div>
-        <h1>Activation Code Gacha</h1>
-        <button id="rollButton">Roll!</button>
-        <div id="message"></div>
-        <div id="stats"></div>
+    <header>
+        <h1>Synthesizer <span class="accent">V</span> Sharp</h1>
+        <h2>Activation Code Gacha</h2>
+    </header>
+    
+    <div class="description">
+        <p>Synthesizer V Sharp is undergoing a limited rollout during the beta period. All users have an opportunity to win a free activation code.</p>
+        <p>Currently, you have a 1.0% chance of winning an activation code every hour.*</p>
+        <p>The server ensures this probability no matter how many times you click the "Roll!" button.</p>
+    </div>
+
+    <button id="rollButton">Roll!</button>
+
+    <div id="message" class="result-message"></div>
+
+    <div id="stats" class="stats">
+        <p>Statistics</p>
+        <p>You have rolled at least <span id="rollCountDisplay">0</span> times.</p>
     </div>
 
     <footer>
         <p>This site will notify you if you win. Do not download files from ads.<br>
         By using "Synthesizer V Sharp Gacha", you accept our <a href="#">User Agreement</a>.</p>
+        <p>*Average, if played every 5 minutes.</p>
     </footer>
 
     <script>
         // Initialize roll count using localStorage
         let rollCount = localStorage.getItem('rollCount') ? parseInt(localStorage.getItem('rollCount')) : 0;
 
-        // Display roll count
-        document.getElementById("stats").textContent = `You have rolled at least ${rollCount} times.`;
+        // Display initial roll count
+        document.getElementById("rollCountDisplay").textContent = rollCount;
 
         document.getElementById("rollButton").addEventListener("click", async () => {
             document.getElementById("message").textContent = "Rolling...";
@@ -39,7 +53,7 @@
                 localStorage.setItem('rollCount', rollCount);
 
                 // Update the display with the new roll count
-                document.getElementById("stats").textContent = `You have rolled at least ${rollCount} times.`;
+                document.getElementById("rollCountDisplay").textContent = rollCount;
 
                 if (data.success) {
                     document.getElementById("message").innerHTML = 
