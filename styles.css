@@ -1,0 +1,77 @@
+/* Basic reset for margins and paddings */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Dark background with light text */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #141414; /* Very dark background */
+    color: #e5e5e5; /* Light grey text color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #9eff00; /* Accent color similar to the website */
+}
+
+/* Roll button styling */
+#rollButton {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    background-color: #9eff00; /* Bright green button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 20px;
+}
+
+#rollButton:hover {
+    background-color: #7fc800; /* Slightly darker green on hover */
+}
+
+/* Message and stats */
+#message, #stats {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #e5e5e5;
+}
+
+/* Highlight the key */
+.key {
+    font-weight: bold;
+    color: #bb86fc; /* Light purple for key */
+}
+
+/* Simple underline effect for the "statistics" section */
+#stats {
+    border-top: 1px solid #9eff00;
+    padding-top: 1rem;
+    margin-top: 2rem;
+}
+
+/* Footer text style */
+footer {
+    position: fixed;
+    bottom: 10px;
+    font-size: 0.85rem;
+    color: #888888;
+    text-align: center;
+    width: 100%;
+}
+
+footer a {
+    color: #9eff00;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
