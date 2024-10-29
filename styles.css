@@ -18,23 +18,39 @@ body {
     text-align: center;
 }
 
-/* Header Styling */
-h1 {
-    font-size: 2rem;
+/* Main Logo and Heading */
+header {
     margin-bottom: 1rem;
-    color: #9eff00; /* Accent color for "V" */
 }
 
-h2 {
-    font-size: 1.2rem;
-    font-weight: normal;
+header h1 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+header h1 .accent {
+    color: #9eff00; /* Green accent for 'V' */
+}
+
+header h2 {
+    font-size: 1.5rem;
     color: #e5e5e5;
     margin-bottom: 1.5rem;
 }
 
+/* Description Text */
+.description {
+    max-width: 600px;
+    margin: 0 auto 1.5rem auto;
+    line-height: 1.5;
+    color: #e5e5e5;
+    font-size: 1rem;
+}
+
 /* Roll button styling */
 #rollButton {
-    padding: 15px 30px;
+    padding: 15px 35px;
     font-size: 1.2rem;
     font-weight: bold;
     color: #000;
