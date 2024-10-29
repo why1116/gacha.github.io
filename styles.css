@@ -5,17 +5,17 @@
     box-sizing: border-box;
 }
 
-/* Dark background with light text */
+/* Center the main content */
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #141414; /* Dark background */
-    color: #e5e5e5; /* Light grey text color */
+    background-color: #141414;
+    color: #e5e5e5;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
+    padding: 20px; /* Add some padding to prevent content from touching screen edges */
 }
 
 /* Main Logo and Heading */
@@ -30,7 +30,7 @@ header h1 {
 }
 
 header h1 .accent {
-    color: #9eff00; /* Green accent for 'V' */
+    color: #9eff00;
 }
 
 header h2 {
@@ -42,10 +42,10 @@ header h2 {
 /* Description Text */
 .description {
     max-width: 600px;
-    margin: 0 auto 1.5rem auto;
     line-height: 1.5;
     color: #e5e5e5;
     font-size: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 /* Roll button styling */
@@ -54,7 +54,7 @@ header h2 {
     font-size: 1.2rem;
     font-weight: bold;
     color: #000;
-    background-color: #9eff00; /* Bright green button */
+    background-color: #9eff00;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -63,7 +63,7 @@ header h2 {
 }
 
 #rollButton:hover {
-    background-color: #7fc800; /* Slightly darker green on hover */
+    background-color: #7fc800;
 }
 
 /* Statistics section styling */
@@ -72,10 +72,11 @@ header h2 {
     font-size: 1rem;
     color: #e5e5e5;
     border: 1px solid #9eff00;
-    padding: 10px;
-    width: 50%;
-    max-width: 400px;
+    padding: 15px;
+    width: 100%; /* Full width for adaptability */
+    max-width: 600px; /* Center and limit width for larger screens */
     border-radius: 5px;
+    text-align: center;
 }
 
 /* Footer text style */
@@ -85,6 +86,7 @@ footer {
     color: #888888;
     text-align: center;
     width: 100%;
+    max-width: 600px; /* Match width of stats box for consistency */
 }
 
 footer a {
@@ -99,4 +101,9 @@ footer a:hover {
 /* Text styling within statistics box */
 #stats p {
     margin: 0.5rem 0;
+}
+
+.key {
+    font-weight: bold;
+    color: #bb86fc; /* Light purple for key emphasis */
 }
