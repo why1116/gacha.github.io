@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gacha Key Roll</title>
+    <style>
+        /* Reset some default styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* General body styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f7f7f7, #e1e5ea);
+            min-height: 100vh;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Container for main content */
+        .container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+            transition: transform 0.3s ease;
+        }
+
+        /* Add hover effect for fun */
+        .container:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Header styling */
+        h1 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        /* Roll button styling */
+        #rollButton {
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        #rollButton:hover {
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+        }
+
+        #rollButton:active {
+            transform: scale(0.98);
+        }
+
+        /* Message styling */
+        #message {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Key styling if user wins */
+        .key {
+            font-weight: bold;
+            color: #6a11cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Roll for an Activation Key!</h1>
+        <button id="rollButton">Roll!</button>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        document.getElementById("rollButton").addEventListener("click", async () => {
+            document.getElementById("message").textContent = "Rolling...";
+
+            try {
+                // Call the Glitch backend roll endpoint
+                const response = await fetch("https://your-glitch-project.glitch.me/roll");
+                const data = await response.json();
+
+                if (data.success) {
+                    document.getElementById("message").innerHTML = 
+                        `🎉 You won! Here is your key: <span class="key">${data.key}</span>`;
+                } else {
+                    document.getElementById("message").textContent = data.message;
+                }
+            } catch (error) {
+                document.getElementById("message").textContent = 
+                    "An error occurred. Please try again.";
+            }
+        });
+    </script>
+</body>
+</html>
