@@ -5,76 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gacha Key Roll</title>
     <style>
-        /* Reset some default styles */
+        /* Basic reset for margins and paddings */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* General body styling */
+        /* Body styling for dark mode */
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f7f7f7, #e1e5ea);
-            min-height: 100vh;
-            text-align: center;
-            color: #333;
+            height: 100vh;
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* Light text color */
+            font-family: Arial, sans-serif;
         }
 
         /* Container for main content */
         .container {
-            background-color: #ffffff;
+            background-color: #1e1e1e; /* Darker container */
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-align: center;
             max-width: 400px;
             width: 90%;
-            transition: transform 0.3s ease;
-        }
-
-        /* Add hover effect for fun */
-        .container:hover {
-            transform: translateY(-4px);
         }
 
         /* Header styling */
         h1 {
-            font-size: 1.8rem;
-            color: #333;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
         /* Roll button styling */
         #rollButton {
-            padding: 12px 24px;
+            padding: 10px 20px;
             font-size: 1rem;
             font-weight: bold;
             color: #fff;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            background-color: #6200ee; /* Button color */
             border: none;
-            border-radius: 8px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: background 0.3s;
         }
 
         #rollButton:hover {
-            background: linear-gradient(135deg, #2575fc, #6a11cb);
-        }
-
-        #rollButton:active {
-            transform: scale(0.98);
+            background-color: #3700b3; /* Darker button on hover */
         }
 
         /* Message styling */
         #message {
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             font-size: 1.1rem;
-            color: #555;
         }
 
-        /* Key styling if user wins */
+        /* Highlight the key */
         .key {
             font-weight: bold;
-            color: #6a11cb;
+            color: #bb86fc; /* Light color for key */
         }
     </style>
 </head>
