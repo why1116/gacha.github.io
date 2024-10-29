@@ -8,25 +8,31 @@
         /* Basic reset for margins and paddings */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Body styling for dark mode */
+        /* Dark background with light text */
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #121212; /* Dark background */
-            color: #ffffff; /* Light text color */
-            font-family: Arial, sans-serif;
+            background-color: #141414; /* Very dark background */
+            color: #e5e5e5; /* Light grey text color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #9eff00; /* Accent color similar to the website */
         }
 
         /* Roll button styling */
         #rollButton {
-            padding: 10px 20px;
-            font-size: 1rem;
+            padding: 15px 30px;
+            font-size: 1.2rem;
             font-weight: bold;
-            color: #fff;
-            background-color: #6200ee; /* Button color */
+            color: #000;
+            background-color: #9eff00; /* Bright green button */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -35,36 +41,68 @@
         }
 
         #rollButton:hover {
-            background-color: #3700b3; /* Darker button on hover */
+            background-color: #7fc800; /* Slightly darker green on hover */
         }
 
         /* Message and stats */
         #message, #stats {
             margin-top: 1rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            color: #e5e5e5;
         }
 
         /* Highlight the key */
         .key {
             font-weight: bold;
-            color: #bb86fc; /* Light color for key */
+            color: #bb86fc; /* Light purple for key */
+        }
+
+        /* Simple underline effect for the "statistics" section */
+        #stats {
+            border-top: 1px solid #9eff00;
+            padding-top: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Footer text style */
+        footer {
+            position: fixed;
+            bottom: 10px;
+            font-size: 0.85rem;
+            color: #888888;
+            text-align: center;
+            width: 100%;
+        }
+
+        footer a {
+            color: #9eff00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div>
-        <h1>Roll for an Activation Key!</h1>
+        <h1>Activation Code Gacha</h1>
         <button id="rollButton">Roll!</button>
         <div id="message"></div>
         <div id="stats"></div>
     </div>
+
+    <footer>
+        <p>This site will notify you if you win. Do not download files from ads.<br>
+        By using "Synthesizer V Sharp Gacha", you accept our <a href="#">User Agreement</a>.</p>
+    </footer>
 
     <script>
         // Initialize roll count using localStorage
         let rollCount = localStorage.getItem('rollCount') ? parseInt(localStorage.getItem('rollCount')) : 0;
 
         // Display roll count
-        document.getElementById("stats").textContent = `You have rolled ${rollCount} times.`;
+        document.getElementById("stats").textContent = `You have rolled at least ${rollCount} times.`;
 
         document.getElementById("rollButton").addEventListener("click", async () => {
             document.getElementById("message").textContent = "Rolling...";
@@ -79,7 +117,7 @@
                 localStorage.setItem('rollCount', rollCount);
 
                 // Update the display with the new roll count
-                document.getElementById("stats").textContent = `You have rolled ${rollCount} times.`;
+                document.getElementById("stats").textContent = `You have rolled at least ${rollCount} times.`;
 
                 if (data.success) {
                     document.getElementById("message").innerHTML = 
